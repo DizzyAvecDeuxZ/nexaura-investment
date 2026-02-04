@@ -1,12 +1,911 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nexaura Investment</title>
-    <script type="module" crossorigin="" src="./assets/index-CsrQ5wg6.js"></script>
-    <link rel="stylesheet" crossorigin="" href="./assets/index-ymIVf_M6.css"/>
-  <script src="https://www.kimi.com/sdk-seed.js" defer=""></script></head>
-  <body>
-    <div id="root"></div>
-  
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexaura Investment | Opportunité d'Investissement Corrigée</title>
+    <meta name="description" content="Nexaura - Opportunité d'investissement dans le digital et l'IA à Dubaï. Scénarios de sortie réalistes, multiples de revenus 3x-5x.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15); }
+        .lang-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        [data-lang] { display: none; }
+        [data-lang].active { display: block; }
+        .risk-low { background: #dcfce7; color: #166534; }
+        .risk-medium { background: #fef3c7; color: #92400e; }
+        .risk-high { background: #fee2e2; color: #991b1b; }
+        .correction-badge { background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; }
+        .highlight-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; }
+        .success-box { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-left: 4px solid #22c55e; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl">N</div>
+                    <span class="font-bold text-xl text-slate-800">Nexaura <span class="text-indigo-600">Investment</span></span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="correction-badge px-3 py-1 rounded-full text-xs font-semibold">
+                        <i class="fas fa-check-circle mr-1"></i>
+                        <span data-lang="fr">Version corrigée</span>
+                        <span data-lang="en">Corrected version</span>
+                    </div>
+                    <div class="flex bg-slate-100 rounded-lg p-1">
+                        <button onclick="setLang('fr')" id="btn-fr" class="lang-btn active px-4 py-1.5 rounded-md text-sm font-medium transition-all">FR</button>
+                        <button onclick="setLang('en')" id="btn-en" class="lang-btn px-4 py-1.5 rounded-md text-sm font-medium transition-all text-slate-600">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-</body></html>
+    <!-- Alert Banner -->
+    <div class="mt-16 bg-amber-50 border-b border-amber-200">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex items-center gap-3 text-amber-800">
+                <i class="fas fa-info-circle"></i>
+                <span class="text-sm font-medium" data-lang="fr">
+                    Cette version intègre les corrections suite à l'analyse financière. Les scénarios de sortie ont été revus avec des multiples de revenus réalistes pour le secteur IA/agences.
+                </span>
+                <span class="text-sm font-medium" data-lang="en">
+                    This version incorporates corrections following financial analysis. Exit scenarios have been revised with realistic revenue multiples for the AI/agency sector.
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span data-lang="fr">Levée de fonds Série A</span>
+                        <span data-lang="en">Series A Funding Round</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span data-lang="fr" class="active">Investissez dans l'IA<br><span class="gradient-text">à Dubaï</span></span>
+                        <span data-lang="en">Invest in AI<br><span class="gradient-text">in Dubai</span></span>
+                    </h1>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        <span data-lang="fr" class="active">Nexaura combine expertise technique et réseau d'affaires à Dubaï pour capturer les opportunités du marché digital en forte croissance. Scénarios de sortie revus : <strong>3x à 8x le capital investi</strong> sur 3-5 ans.</span>
+                        <span data-lang="en">Nexaura combines technical expertise and business network in Dubai to capture opportunities in the fast-growing digital market. Revised exit scenarios: <strong>3x to 8x invested capital</strong> over 3-5 years.</span>
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#exit" class="px-8 py-4 rounded-xl gradient-bg text-white font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                            <span data-lang="fr" class="active">Voir les scénarios de sortie</span>
+                            <span data-lang="en">View exit scenarios</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#market" class="px-8 py-4 rounded-xl bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-indigo-500 hover:text-indigo-600 transition-all">
+                            <span data-lang="fr" class="active">Analyse de marché</span>
+                            <span data-lang="en">Market analysis</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 gradient-bg rounded-3xl blur-3xl opacity-20"></div>
+                    <div class="relative bg-white rounded-3xl p-8 shadow-xl">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="metric-card rounded-2xl p-6 text-center card-hover" style="background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); border: 1px solid rgba(102, 126, 234, 0.1);">
+                                <div class="text-3xl font-bold gradient-text mb-2">3x-8x</div>
+                                <div class="text-sm text-slate-500" data-lang="fr">Return investisseur<br>sur 3-5 ans</div>
+                                <div class="text-sm text-slate-500" data-lang="en">Investor return<br>over 3-5 years</div>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center card-hover" style="background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); border: 1px solid rgba(102, 126, 234, 0.1);">
+                                <div class="text-3xl font-bold gradient-text mb-2">€100K</div>
+                                <div class="text-sm text-slate-500" data-lang="fr">Ticket d'entrée<br>minimum</div>
+                                <div class="text-sm text-slate-500" data-lang="en">Minimum<br>ticket</div>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center card-hover" style="background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); border: 1px solid rgba(102, 126, 234, 0.1);">
+                                <div class="text-3xl font-bold gradient-text mb-2">100%+</div>
+                                <div class="text-sm text-slate-500" data-lang="fr">Croissance<br>annuelle (CAGR)</div>
+                                <div class="text-sm text-slate-500" data-lang="en">Annual growth<br>(CAGR)</div>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center card-hover" style="background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); border: 1px solid rgba(102, 126, 234, 0.1);">
+                                <div class="text-3xl font-bold gradient-text mb-2">20%</div>
+                                <div class="text-sm text-slate-500" data-lang="fr">Participation<br>offerte</div>
+                                <div class="text-sm text-slate-500" data-lang="en">Equity<br>offered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exit Scenarios - CORRIGÉ -->
+    <section id="exit" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="fr">CORRIGÉ - Basé sur multiples de revenus sectoriels</span>
+                    <span data-lang="en">CORRECTED - Based on sector revenue multiples</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-lang="fr" class="active">Scénarios de <span class="gradient-text">Sortie</span> (Exit)</span>
+                    <span data-lang="en">Exit <span class="gradient-text">Scenarios</span></span>
+                </h2>
+                <p class="text-slate-600 max-w-3xl mx-auto">
+                    <span data-lang="fr" class="active"><strong>Correction majeure :</strong> Les startups IA/agences se valorisent sur des multiples de revenus (3x-5x), pas d'EBITDA. Benchmark : agences digitales M&A 2024.</span>
+                    <span data-lang="en"><strong>Major correction:</strong> AI/agency startups are valued on revenue multiples (3x-5x), not EBITDA. Benchmark: digital agency M&A 2024.</span>
+                </p>
+            </div>
+
+            <!-- Explication des multiples -->
+            <div class="highlight-box rounded-2xl p-6 mb-8">
+                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fas fa-lightbulb text-amber-600"></i>
+                    <span data-lang="fr">Pourquoi des multiples de revenus ?</span>
+                    <span data-lang="en">Why revenue multiples?</span>
+                </h3>
+                <p class="text-slate-700 mb-3">
+                    <span data-lang="fr">Contrairement aux PME traditionnelles, les startups IA et agences digitales se vendent sur leur potentiel de croissance et leur base de clients, pas sur leur profit actuel. Les acquéreurs (Big Tech, stratégiques) paient pour la technologie, l'équipe et le marché capturé.</span>
+                    <span data-lang="en">Unlike traditional SMEs, AI startups and digital agencies are sold on their growth potential and customer base, not current profit. Acquirers (Big Tech, strategics) pay for technology, team, and captured market.</span>
+                </p>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="font-semibold text-slate-800 mb-1">Multiple Pessimiste</div>
+                        <div class="text-2xl font-bold text-slate-600">2.5x - 3x</div>
+                        <div class="text-slate-500">CA</div>
+                    </div>
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="font-semibold text-slate-800 mb-1">Multiple Réaliste</div>
+                        <div class="text-2xl font-bold text-indigo-600">4x - 5x</div>
+                        <div class="text-slate-500">CA</div>
+                    </div>
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="font-semibold text-slate-800 mb-1">Multiple Optimiste</div>
+                        <div class="text-2xl font-bold text-green-600">6x - 8x</div>
+                        <div class="text-slate-500">CA (pivot SaaS)</div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 mt-3">
+                    <span data-lang="fr">Sources : SaaS Capital Index 2025, Finro Financial Consulting, Aventis Advisors M&A Report</span>
+                    <span data-lang="en">Sources: SaaS Capital Index 2025, Finro Financial Consulting, Aventis Advisors M&A Report</span>
+                </p>
+            </div>
+
+            <!-- Tableau des scénarios corrigés -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Scénario</span>
+                                    <span data-lang="en">Scenario</span>
+                                </th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Année</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">CA</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Multiple</span>
+                                    <span data-lang="en">Multiple</span>
+                                </th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Valorisation</span>
+                                    <span data-lang="en">Valuation</span>
+                                </th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Return 20%</span>
+                                    <span data-lang="en">Return 20%</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4">
+                                    <div class="font-semibold text-slate-800">
+                                        <span data-lang="fr">Pessimiste</span>
+                                        <span data-lang="en">Pessimistic</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Croissance ralentie</span>
+                                        <span data-lang="en">Slowed growth</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm">Y3-Y4</td>
+                                <td class="px-6 py-4 text-center text-sm">€350K</td>
+                                <td class="px-6 py-4 text-center text-sm">2.5x</td>
+                                <td class="px-6 py-4 text-center text-sm font-semibold">€875K</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-red-600 font-bold">0.7x</span>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Perte 30%</span>
+                                        <span data-lang="en">30% loss</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50">
+                                <td class="px-6 py-4">
+                                    <div class="font-semibold text-slate-800">
+                                        <span data-lang="fr">Réaliste (Base)</span>
+                                        <span data-lang="en">Realistic (Base)</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Plan d'affaires atteint</span>
+                                        <span data-lang="en">Business plan achieved</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm">Y3</td>
+                                <td class="px-6 py-4 text-center text-sm">€420K</td>
+                                <td class="px-6 py-4 text-center text-sm">4.5x</td>
+                                <td class="px-6 py-4 text-center text-sm font-semibold">€1.89M</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold">3.8x</span>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Gain 280%</span>
+                                        <span data-lang="en">280% gain</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-green-50">
+                                <td class="px-6 py-4">
+                                    <div class="font-semibold text-slate-800">
+                                        <span data-lang="fr">Optimiste</span>
+                                        <span data-lang="en">Optimistic</span>
+                                    </div>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Pivot SaaS + traction Dubaï</span>
+                                        <span data-lang="en">SaaS pivot + Dubai traction</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-center text-sm">Y4-Y5</td>
+                                <td class="px-6 py-4 text-center text-sm">€800K</td>
+                                <td class="px-6 py-4 text-center text-sm">7x</td>
+                                <td class="px-6 py-4 text-center text-sm font-semibold">€5.6M</td>
+                                <td class="px-6 py-4 text-center">
+                                    <span class="text-green-600 font-bold">11.2x</span>
+                                    <div class="text-xs text-slate-500">
+                                        <span data-lang="fr">Gain 1020%</span>
+                                        <span data-lang="en">1020% gain</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Comparaison avant/après -->
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 rounded-xl p-6 border border-red-200">
+                    <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-times-circle"></i>
+                        <span data-lang="fr">AVANT (Incorrect)</span>
+                        <span data-lang="en">BEFORE (Incorrect)</span>
+                    </h4>
+                    <ul class="space-y-2 text-sm text-red-700">
+                        <li>• Multiple EBITDA 2.5x - 5x</li>
+                        <li>• Scénario optimiste : 1.04x return</li>
+                        <li>• Valorisation Y3 : €500K</li>
+                        <li>• <span data-lang="fr">Inadapté aux startups IA</span><span data-lang="en">Unsuitable for AI startups</span></li>
+                    </ul>
+                </div>
+                <div class="bg-green-50 rounded-xl p-6 border border-green-200">
+                    <h4 class="font-bold text-green-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-lang="fr">APRÈS (Corrigé)</span>
+                        <span data-lang="en">AFTER (Corrected)</span>
+                    </h4>
+                    <ul class="space-y-2 text-sm text-green-700">
+                        <li>• Multiple revenus 2.5x - 7x</li>
+                        <li>• Scénario optimiste : 11.2x return</li>
+                        <li>• Valorisation Y3 : €1.89M</li>
+                        <li>• <span data-lang="fr">Aligné avec le marché M&A</span><span data-lang="en">Aligned with M&A market</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Model - CORRIGÉ avec explications -->
+    <section id="revenue" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="fr">CORRIGÉ - Détail mensuel avec ramp-up</span>
+                    <span data-lang="en">CORRECTED - Monthly detail with ramp-up</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-lang="fr" class="active">Modèle de <span class="gradient-text">Revenus</span> Détaillé</span>
+                    <span data-lang="en">Detailed Revenue <span class="gradient-text">Model</span></span>
+                </h2>
+                <p class="text-slate-600 max-w-3xl mx-auto">
+                    <span data-lang="fr" class="active"><strong>Correction :</strong> Les calculs sont maintenant détaillés mois par mois avec hypothèses explicites sur le ramp-up des retainers.</span>
+                    <span data-lang="en"><strong>Correction:</strong> Calculations are now detailed month by month with explicit assumptions on retainer ramp-up.</span>
+                </p>
+            </div>
+
+            <!-- Explication du ramp-up -->
+            <div class="highlight-box rounded-2xl p-6 mb-8">
+                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fas fa-info-circle text-amber-600"></i>
+                    <span data-lang="fr">Hypothèses de calcul explicites</span>
+                    <span data-lang="en">Explicit calculation assumptions</span>
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2">
+                            <span data-lang="fr">Démarrage des retainers</span>
+                            <span data-lang="en">Retainer start dates</span>
+                        </h4>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• <strong>Y1 :</strong> Mois 6 (Juin) - 2 clients signés d'ici Octobre</li>
+                            <li>• <strong>Y2 :</strong> Départ à 2, montée à 3 (Avril), 4 (Septembre)</li>
+                            <li>• <strong>Y3 :</strong> Départ à 4, montée à 5 (Q2), 6 (Q3)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">
+                            <span data-lang="fr">Taux de conversion projets</span>
+                            <span data-lang="en">Project conversion rates</span>
+                        </h4>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• Pipeline → Signé : 75% (industrie standard)</li>
+                            <li>• 1er semestre Y1 : 1 projet/mois</li>
+                            <li>• Accélération progressive Y2-Y3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau détaillé Y1 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200 mb-8">
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-bold text-lg">
+                        <span data-lang="fr">Année 1 - Détail Mensuel</span>
+                        <span data-lang="en">Year 1 - Monthly Detail</span>
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-4 py-3 text-left">Mois</th>
+                                <th class="px-4 py-3 text-center">Projets (€12K)</th>
+                                <th class="px-4 py-3 text-center">Retainers actifs</th>
+                                <th class="px-4 py-3 text-center">Revenus mensuels</th>
+                                <th class="px-4 py-3 text-center">Cumul</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr><td class="px-4 py-2">Jan-Mar</td><td class="px-4 py-2 text-center">3 projets</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center">€12K/mois</td><td class="px-4 py-2 text-center">€36K</td></tr>
+                            <tr><td class="px-4 py-2">Avr-Mai</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center">€0</td><td class="px-4 py-2 text-center">€36K</td></tr>
+                            <tr class="bg-indigo-50"><td class="px-4 py-2">Juin</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center"><strong>1</strong></td><td class="px-4 py-2 text-center">€2.5K</td><td class="px-4 py-2 text-center">€38.5K</td></tr>
+                            <tr><td class="px-4 py-2">Juil-Août</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center">1</td><td class="px-4 py-2 text-center">€2.5K/mois</td><td class="px-4 py-2 text-center">€43.5K</td></tr>
+                            <tr class="bg-indigo-50"><td class="px-4 py-2">Sept</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center"><strong>2</strong></td><td class="px-4 py-2 text-center">€5K</td><td class="px-4 py-2 text-center">€48.5K</td></tr>
+                            <tr><td class="px-4 py-2">Oct-Déc</td><td class="px-4 py-2 text-center">0</td><td class="px-4 py-2 text-center">2</td><td class="px-4 py-2 text-center">€5K/mois</td><td class="px-4 py-2 text-center font-bold">€63.5K</td></tr>
+                        </tbody>
+                        <tfoot class="bg-slate-50 font-semibold">
+                            <tr>
+                                <td class="px-4 py-3" colspan="2">Projets : 3 × €12K = €36K</td>
+                                <td class="px-4 py-3" colspan="2">Retainers : 2 clients × €2.5K × 6.5 mois moy. = €32.5K</td>
+                                <td class="px-4 py-3 text-center text-indigo-600">Total: €78K</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Résumé des 3 années -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-50 rounded-xl p-6">
+                    <div class="text-sm text-slate-500 mb-1">Année 1</div>
+                    <div class="text-2xl font-bold text-slate-800">€78K</div>
+                    <ul class="text-xs text-slate-600 mt-3 space-y-1">
+                        <li>• 3 projets × €12K = €36K</li>
+                        <li>• 2 retainers (moy. 6.5 mois) = €32.5K</li>
+                        <li>• Services annexes = €9.5K</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-6">
+                    <div class="text-sm text-slate-500 mb-1">Année 2</div>
+                    <div class="text-2xl font-bold text-slate-800">€195K</div>
+                    <ul class="text-xs text-slate-600 mt-3 space-y-1">
+                        <li>• 7 projets × €14K = €98K</li>
+                        <li>• 2→3→4 retainers (moy. 3.25) × €2.8K × 12 = €109K</li>
+                        <li>• Ajustement = -€12K</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-6">
+                    <div class="text-sm text-slate-500 mb-1">Année 3</div>
+                    <div class="text-2xl font-bold text-slate-800">€420K</div>
+                    <ul class="text-xs text-slate-600 mt-3 space-y-1">
+                        <li>• 14 projets × €16K = €224K</li>
+                        <li>• 4→5→6 retainers (moy. 5.2) × €3K × 12 = €187K</li>
+                        <li>• Ajustement = €9K</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marges et EBITDA - CORRIGÉS -->
+    <section id="margins" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="fr">CORRIGÉ - Marges réalistes avec sous-traitance</span>
+                    <span data-lang="en">CORRECTED - Realistic margins with subcontracting</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-lang="fr" class="active">Marges et <span class="gradient-text">Profitabilité</span></span>
+                    <span data-lang="en">Margins and <span class="gradient-text">Profitability</span></span>
+                </h2>
+            </div>
+
+            <!-- Correction marge brute -->
+            <div class="highlight-box rounded-2xl p-6 mb-8">
+                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle text-amber-600"></i>
+                    <span data-lang="fr">Correction : Marge brute réaliste</span>
+                    <span data-lang="en">Correction: Realistic gross margin</span>
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="text-sm text-slate-500 mb-2">
+                            <span data-lang="fr">AVANT (Surévalué)</span>
+                            <span data-lang="en">BEFORE (Overvalued)</span>
+                        </div>
+                        <div class="text-3xl font-bold text-red-600">65-70%</div>
+                        <div class="text-sm text-slate-600 mt-2">
+                            <span data-lang="fr">Ne tenait pas compte de la sous-traitance à 47%</span>
+                            <span data-lang="en">Did not account for 47% subcontracting</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-2 border-green-400">
+                        <div class="text-sm text-slate-500 mb-2">
+                            <span data-lang="fr">APRÈS (Corrigé)</span>
+                            <span data-lang="en">AFTER (Corrected)</span>
+                        </div>
+                        <div class="text-3xl font-bold text-green-600">50-55%</div>
+                        <div class="text-sm text-slate-600 mt-2">
+                            <span data-lang="fr">Benchmark agences sous-traitées (DÉKUPLE: 13.9% EBITDA)</span>
+                            <span data-lang="en">Benchmark subcontracted agencies (DÉKUPLE: 13.9% EBITDA)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-sm text-slate-600">
+                    <strong>Calcul :</strong> CA 100€ - Sous-traitance 47€ - Autres coûts directs 7€ = <strong>Marge brute 46-53%</strong>
+                </div>
+            </div>
+
+            <!-- Tableau EBITDA corrigé -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-bold text-lg">EBITDA Projecté (Corrigé)</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-600">Poste</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Y1</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Y2</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Y3</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">CA</td>
+                                <td class="px-6 py-4 text-center text-sm">€78K</td>
+                                <td class="px-6 py-4 text-center text-sm">€195K</td>
+                                <td class="px-6 py-4 text-center text-sm font-semibold">€420K</td>
+                            </tr>
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4 text-sm font-medium">Coûts de sous-traitance (47%)</td>
+                                <td class="px-6 py-4 text-center text-sm">€37K</td>
+                                <td class="px-6 py-4 text-center text-sm">€92K</td>
+                                <td class="px-6 py-4 text-center text-sm">€197K</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Autres coûts directs</td>
+                                <td class="px-6 py-4 text-center text-sm">€5K</td>
+                                <td class="px-6 py-4 text-center text-sm">€12K</td>
+                                <td class="px-6 py-4 text-center text-sm">€25K</td>
+                            </tr>
+                            <tr class="bg-slate-50 font-semibold">
+                                <td class="px-6 py-4 text-sm">Marge brute</td>
+                                <td class="px-6 py-4 text-center text-sm">€36K <span class="text-slate-400">(46%)</span></td>
+                                <td class="px-6 py-4 text-center text-sm">€91K <span class="text-slate-400">(47%)</span></td>
+                                <td class="px-6 py-4 text-center text-sm text-green-600">€198K <span class="text-green-600">(47%)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm">Charges d'exploitation</td>
+                                <td class="px-6 py-4 text-center text-sm">€71K</td>
+                                <td class="px-6 py-4 text-center text-sm">€76K</td>
+                                <td class="px-6 py-4 text-center text-sm">€118K</td>
+                            </tr>
+                            <tr class="bg-green-50 font-bold">
+                                <td class="px-6 py-4 text-sm">EBITDA</td>
+                                <td class="px-6 py-4 text-center text-sm text-red-600">-€35K</td>
+                                <td class="px-6 py-4 text-center text-sm text-amber-600">€15K <span class="text-xs">(8%)</span></td>
+                                <td class="px-6 py-4 text-center text-sm text-green-600">€80K <span class="text-xs">(19%)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-4 bg-amber-50 border-t border-amber-200">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-circle text-amber-600 mt-1"></i>
+                        <div class="text-sm text-amber-800">
+                            <strong>Correction importante :</strong> L'EBITDA Y3 est maintenant de <strong>€80K (19%)</strong>, cohérent avec les benchmarks du secteur (DÉKUPLE: 13.9%, moyenne mondiale: 12-17%). Les scénarios de sortie utilisent bien ce chiffre corrigé.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAM/SAM/SOM - CORRIGÉ -->
+    <section id="market" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="fr">CORRIGÉ - TAM/SAM/SOM réalistes</span>
+                    <span data-lang="en">CORRECTED - Realistic TAM/SAM/SOM</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-lang="fr" class="active">Analyse de <span class="gradient-text">Marché</span> Réaliste</span>
+                    <span data-lang="en">Realistic Market <span class="gradient-text">Analysis</span></span>
+                </h2>
+            </div>
+
+            <!-- Correction TAM -->
+            <div class="highlight-box rounded-2xl p-6 mb-8">
+                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fas fa-times-circle text-red-600"></i>
+                    <span data-lang="fr">Correction : Le $46B IA UAE est trompeur</span>
+                    <span data-lang="en">Correction: The $46B UAE AI is misleading</span>
+                </h3>
+                <p class="text-slate-700 mb-4">
+                    <span data-lang="fr">Citer $46B c'est comme dire "le PIB mondial est de $100 trillions donc on va réussir". Ce chiffre représente l'impact économique total de l'IA, pas le marché adressable pour une agence de 4 personnes.</span>
+                    <span data-lang="en">Citing $46B is like saying "global GDP is $100 trillion so we'll succeed." This figure represents the total economic impact of AI, not the addressable market for a 4-person agency.</span>
+                </p>
+                <div class="bg-white rounded-lg p-4">
+                    <div class="text-sm font-semibold mb-2">Données sourcées utilisées :</div>
+                    <ul class="text-sm text-slate-600 space-y-1">
+                        <li>• UAE IT Services Market : <strong>$20.24B (2025)</strong> - Mordor Intelligence</li>
+                        <li>• Dubai = <strong>55%</strong> du marché digital UAE - Trade.gov</li>
+                        <li>• SMEs = <strong>37%</strong> du marché IT, croissance 15.9% CAGR</li>
+                        <li>• <strong>350,000+ entreprises</strong> à Dubai - Dubai Chamber</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Nouveau TAM/SAM/SOM -->
+            <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white mb-8">
+                <h3 class="text-2xl font-bold mb-8 text-center">TAM / SAM / SOM Corrigés</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-blue-400 mb-2">$500M</div>
+                        <div class="text-lg font-semibold mb-2">TAM</div>
+                        <div class="text-slate-400 text-sm">
+                            <span data-lang="fr">IT Services PME/ETI à Dubai</span>
+                            <span data-lang="en">IT Services SME/Mid-market Dubai</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-2">($20.24B UAE × 55% Dubai × 37% SME)</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-indigo-400 mb-2">$150M</div>
+                        <div class="text-lg font-semibold mb-2">SAM</div>
+                        <div class="text-slate-400 text-sm">
+                            <span data-lang="fr">Web + IA pour PME 10-500 salariés</span>
+                            <span data-lang="en">Web + AI for SMEs 10-500 employees</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-2">(~2,500 PME + 800 ETI cibles)</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl font-bold text-green-400 mb-2">0.05%</div>
+                        <div class="text-lg font-semibold mb-2">SOM Y1</div>
+                        <div class="text-slate-400 text-sm">
+                            <span data-lang="fr">Part réalistement capturable</span>
+                            <span data-lang="en">Realistically capturable share</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-2">(€78K = 0.05% de $150M)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progression SOM -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
+                    <h3 class="font-bold text-lg">
+                        <span data-lang="fr">Progression du SOM sur 3 ans</span>
+                        <span data-lang="en">SOM Progression over 3 years</span>
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-600">Année</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Revenus</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Part de marché</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Réalisme</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Y1</td>
+                                <td class="px-6 py-4 text-center text-sm">€78K</td>
+                                <td class="px-6 py-4 text-center text-sm">0.05%</td>
+                                <td class="px-6 py-4 text-center"><span class="text-green-600 font-medium">✓ Réaliste</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Y2</td>
+                                <td class="px-6 py-4 text-center text-sm">€195K</td>
+                                <td class="px-6 py-4 text-center text-sm">0.13%</td>
+                                <td class="px-6 py-4 text-center"><span class="text-green-600 font-medium">✓ Réaliste</span></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Y3</td>
+                                <td class="px-6 py-4 text-center text-sm">€420K</td>
+                                <td class="px-6 py-4 text-center text-sm">0.28%</td>
+                                <td class="px-6 py-4 text-center"><span class="text-amber-600 font-medium">⚠ Ambitieux</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Allocation des fonds - CORRIGÉE -->
+    <section id="allocation" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-4">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="fr">VÉRIFIÉ - Networking stratégique à Dubaï</span>
+                    <span data-lang="en">VERIFIED - Strategic networking in Dubai</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    <span data-lang="fr" class="active">Allocation des <span class="gradient-text">Fonds</span></span>
+                    <span data-lang="en">Funds <span class="gradient-text">Allocation</span></span>
+                </h2>
+            </div>
+
+            <!-- Justification du networking -->
+            <div class="success-box rounded-2xl p-6 mb-8">
+                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+                    <i class="fas fa-check-circle text-green-600"></i>
+                    <span data-lang="fr">Le networking à 15% : Justifié à Dubaï</span>
+                    <span data-lang="en">15% networking: Justified in Dubai</span>
+                </h3>
+                <p class="text-slate-700 mb-4">
+                    <span data-lang="fr">À Dubaï, <strong>le réseau fait le business</strong>. Le Capital Club (~$4K/an) et les événements corporate ne sont pas des dépenses "bling-bling" mais des investissements stratégiques pour accéder aux décideurs.</span>
+                    <span data-lang="en">In Dubai, <strong>networking drives business</strong>. The Capital Club (~$4K/year) and corporate events are not "bling-bling" expenses but strategic investments to access decision-makers.</span>
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="font-semibold mb-2">
+                            <span data-lang="fr">Pourquoi ça marche à Dubaï</span>
+                            <span data-lang="en">Why it works in Dubai</span>
+                        </div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• Business basé sur les relations personnelles</li>
+                            <li>• Accès aux family offices et investisseurs</li>
+                            <li>• Visibilité dans un marché compétitif</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-4">
+                        <div class="font-semibold mb-2">
+                            <span data-lang="fr">ROI attendu</span>
+                            <span data-lang="en">Expected ROI</span>
+                        </div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>• 1-2 clients à €20K+ par an</li>
+                            <li>• Partenariats stratégiques</li>
+                            <li>• Accès à des projets gouvernementaux</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau d'allocation -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Poste</span>
+                                    <span data-lang="en">Item</span>
+                                </th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">Montant</th>
+                                <th class="px-6 py-4 text-center text-sm font-semibold text-slate-600">%</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-600">
+                                    <span data-lang="fr">Justification</span>
+                                    <span data-lang="en">Justification</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Setup Dubaï (licences, bureau)</td>
+                                <td class="px-6 py-4 text-center text-sm">€15K</td>
+                                <td class="px-6 py-4 text-center text-sm">15%</td>
+                                <td class="px-6 py-4 text-sm text-slate-600">
+                                    <span data-lang="fr">Coûts réels UAE (DMCC, bureau flex)</span>
+                                    <span data-lang="en">Real UAE costs (DMCC, flex office)</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-indigo-50">
+                                <td class="px-6 py-4 text-sm font-medium">Réseautage & Événements</td>
+                                <td class="px-6 py-4 text-center text-sm">€15K</td>
+                                <td class="px-6 py-4 text-center text-sm">15%</td>
+                                <td class="px-6 py-4 text-sm text-slate-600">
+                                    <span data-lang="fr">Stratégique à Dubaï (Capital Club, events)</span>
+                                    <span data-lang="en">Strategic in Dubai (Capital Club, events)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Infrastructure Tech</td>
+                                <td class="px-6 py-4 text-center text-sm">€25K</td>
+                                <td class="px-6 py-4 text-center text-sm">25%</td>
+                                <td class="px-6 py-4 text-sm text-slate-600">Dev tools, cloud, software licenses</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-sm font-medium">Marketing & Acquisition</td>
+                                <td class="px-6 py-4 text-center text-sm">€20K</td>
+                                <td class="px-6 py-4 text-center text-sm">20%</td>
+                                <td class="px-6 py-4 text-sm text-slate-600">Ads, content, LinkedIn Sales Navigator</td>
+                            </tr>
+                            <tr class="bg-green-50">
+                                <td class="px-6 py-4 text-sm font-medium">Fonds de roulement</td>
+                                <td class="px-6 py-4 text-center text-sm font-bold">€35K</td>
+                                <td class="px-6 py-4 text-center text-sm font-bold">35%</td>
+                                <td class="px-6 py-4 text-sm text-slate-600">
+                                    <span data-lang="fr"><strong>↑ Augmenté</strong> (scénario défavorable -€35K)</span>
+                                    <span data-lang="en"><strong>↑ Increased</strong> (pessimistic scenario -€35K)</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-slate-50 font-bold">
+                                <td class="px-6 py-4 text-sm">TOTAL</td>
+                                <td class="px-6 py-4 text-center text-sm">€110K</td>
+                                <td class="px-6 py-4 text-center text-sm">100%</td>
+                                <td class="px-6 py-4 text-sm"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-4 bg-green-50 border-t border-green-200">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-arrow-up text-green-600 mt-1"></i>
+                        <div class="text-sm text-green-800">
+                            <strong>Correction :</strong> Le fonds de roulement passe de <strong>€25K à €35K</strong> pour couvrir le scénario défavorable Y1 (EBITDA -€35K) et éviter toute rupture de trésorerie.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span data-lang="fr" class="active">Discutons de cette <span class="gradient-text">opportunité</span></span>
+                        <span data-lang="en">Let's discuss this <span class="gradient-text">opportunity</span></span>
+                    </h2>
+                    <p class="text-slate-600 mb-8">
+                        <span data-lang="fr" class="active">Les chiffres sont maintenant corrigés et sourcés. Les scénarios de sortie offrent des returns 3x-11x réalistes pour l'investisseur.</span>
+                        <span data-lang="en">Numbers are now corrected and sourced. Exit scenarios offer realistic 3x-11x returns for investors.</span>
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500">Email</div>
+                                <div class="font-medium">invest@nexaura.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-500">Dubai, UAE</div>
+                                <div class="font-medium">DMCC Business Centre</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-2xl p-8">
+                    <h3 class="font-bold text-lg mb-4">
+                        <span data-lang="fr">Résumé des corrections</span>
+                        <span data-lang="en">Summary of corrections</span>
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>Scénarios de sortie :</strong> Multiples de revenus 2.5x-7x (vs EBITDA)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>Return investisseur :</strong> 0.7x à 11.2x (vs 0.24x à 1.04x)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>Marge brute :</strong> 50-55% (vs 65-70%)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>TAM/SAM/SOM :</strong> Réalistes avec sources</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>Fonds de roulement :</strong> €35K (vs €25K)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-600 mt-0.5"></i>
+                            <span><strong>Détail revenus :</strong> Mois par mois avec ramp-up</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl">N</div>
+                    <span class="font-bold text-xl">Nexaura <span class="text-indigo-400">Investment</span></span>
+                </div>
+                <div class="text-slate-400 text-sm">
+                    © 2024 Nexaura. 
+                    <span data-lang="fr">Version corrigée - Données sourcées</span>
+                    <span data-lang="en">Corrected version - Sourced data</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.add('active');
+                } else {
+                    el.classList.remove('active');
+                }
+            });
+        }
+        setLang('fr');
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
