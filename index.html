@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexaura Investment | Pre-Revenue RBF</title>
-    <meta name="description" content="Nexaura - RBF pour agence digitale pre-revenue à Dubaï. 15% du CA, cap 1.5x, 12 mois grâce.">
+    <title>Nexaura Investment | Opportunité d'Investissement</title>
+    <meta name="description" content="Nexaura - Opportunité d'investissement pre-revenue à Dubaï. RBF 15%, cap 1.5x, 12 mois grâce.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .rbf-badge { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+        .gradient-text { background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-bg { background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%); }
         .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15); }
-        .lang-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .lang-btn.active { background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%); color: white; }
         [data-lang] { display: none; }
         [data-lang].active { display: block; }
-        .math-box { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left: 4px solid #3b82f6; }
-        .honest-box { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-left: 4px solid #10b981; }
-        .warning-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b; }
-        .prerevenue-box { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); border-left: 4px solid #8b5cf6; }
+        .metric-card { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1); }
+        .risk-low { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .risk-medium { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .risk-high { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .pre-revenue-badge { background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-black text-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl">N</div>
-                    <span class="font-bold text-xl text-slate-800">Nexaura <span class="text-indigo-600">Investment</span></span>
+                    <img src="logo-nexaura.png" alt="Nexaura" class="w-10 h-10 object-contain rounded-lg">
+                    <span class="font-bold text-xl text-white">Nexaura <span class="text-purple-400">Investment</span></span>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="rbf-badge px-3 py-1 rounded-full text-xs font-semibold text-white">PRE-REVENUE</div>
-                    <div class="flex bg-slate-100 rounded-lg p-1">
+                    <div class="pre-revenue-badge px-3 py-1 rounded-full text-xs font-semibold text-white">PRE-REVENUE</div>
+                    <div class="flex bg-white/10 rounded-lg p-1">
                         <button onclick="setLang('fr')" id="btn-fr" class="lang-btn active px-4 py-1.5 rounded-md text-sm font-medium transition-all">FR</button>
-                        <button onclick="setLang('en')" id="btn-en" class="lang-btn px-4 py-1.5 rounded-md text-sm font-medium transition-all text-slate-600">EN</button>
+                        <button onclick="setLang('en')" id="btn-en" class="lang-btn px-4 py-1.5 rounded-md text-sm font-medium transition-all text-white/60">EN</button>
                     </div>
                 </div>
             </div>
@@ -45,72 +47,72 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <i class="fas fa-rocket"></i>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm font-medium mb-6 border border-purple-500/30">
+                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
                         <span data-lang="fr">Lancement Janvier 2026 — Pre-revenue</span>
                         <span data-lang="en">Launch January 2026 — Pre-revenue</span>
                     </div>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        <span data-lang="fr" class="active">Investir dans une<br><span class="gradient-text">agence naissante</span></span>
-                        <span data-lang="en">Invest in a<br><span class="gradient-text">new agency</span></span>
+                        <span data-lang="fr" class="active">Investir dans le<br><span class="gradient-text">futur du digital</span></span>
+                        <span data-lang="en">Invest in the<br><span class="gradient-text">future of digital</span></span>
                     </h1>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        <span data-lang="fr" class="active">Nexaura n'a pas encore de clients. C'est une agence en création à Dubaï, avec un modèle de revenus construit from scratch : <strong>projets one-shot</strong> + <strong>retainers récurrents</strong>. Structure RBF à <strong>15% du CA</strong>, cap <strong>€150K</strong>, <strong>12 mois de grâce</strong> pour permettre le lancement.</span>
-                        <span data-lang="en">Nexaura has no clients yet. It's a new agency being created in Dubai, with a revenue model built from scratch: <strong>one-shot projects</strong> + <strong>recurring retainers</strong>. RBF structure at <strong>15% of revenue</strong>, cap <strong>€150K</strong>, <strong>12 months grace period</strong> to allow launch.</span>
+                    <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                        <span data-lang="fr" class="active">Nexaura est une agence en création à Dubaï, pre-revenue (0 clients actuellement). Modèle : <strong>projets one-shot</strong> + <strong>retainers récurrents</strong> avec sous-traitance 47%. Structure RBF à <strong>15% du CA</strong>, cap <strong>€150K</strong>.</span>
+                        <span data-lang="en">Nexaura is a new agency being created in Dubai, pre-revenue (0 clients currently). Model: <strong>one-shot projects</strong> + <strong>recurring retainers</strong> with 47% subcontracting. RBF structure at <strong>15% of revenue</strong>, cap <strong>€150K</strong>.</span>
                     </p>
                     
-                    <div class="prerevenue-box rounded-xl p-4 mb-6">
-                        <div class="text-sm font-semibold text-purple-800 mb-2">
-                            <i class="fas fa-info-circle mr-2"></i>État actuel
+                    <div class="glass-card rounded-xl p-4 mb-6">
+                        <div class="text-sm font-semibold text-purple-300 mb-2">
+                            <i class="fas fa-calculator mr-2"></i>Chiffres clés (Excel)
                         </div>
-                        <div class="text-sm text-slate-700 space-y-1">
-                            <div class="flex justify-between"><span>Clients actuels :</span> <strong>0</strong></div>
-                            <div class="flex justify-between"><span>MRR actuel :</span> <strong>€0</strong></div>
-                            <div class="flex justify-between"><span>Pipeline signé :</span> <strong>€0</strong></div>
-                            <div class="flex justify-between"><span>Lancement prévu :</span> <strong>Janvier 2026</strong></div>
+                        <div class="text-sm text-gray-300 space-y-1">
+                            <div class="flex justify-between"><span>CA Y1 (2026) :</span> <strong>€62.7K</strong></div>
+                            <div class="flex justify-between"><span>CA Y2 (2027) :</span> <strong>€196.8K</strong></div>
+                            <div class="flex justify-between"><span>CA Y3 (2028) :</span> <strong>€383.8K</strong></div>
+                            <div class="flex justify-between"><span>Break-even :</span> <strong class="text-green-400">Mois 15-18</strong></div>
                         </div>
                     </div>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="#model" class="px-8 py-4 rounded-xl gradient-bg text-white font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2">
-                            <span data-lang="fr" class="active">Voir le modèle économique</span>
-                            <span data-lang="en">View business model</span>
+                        <a href="#projections" class="px-8 py-4 rounded-xl gradient-bg text-white font-semibold hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+                            <span data-lang="fr" class="active">Voir les projections</span>
+                            <span data-lang="en">View projections</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="#risks" class="px-8 py-4 rounded-xl bg-white border-2 border-slate-200 text-slate-700 font-semibold hover:border-red-500 hover:text-red-600 transition-all">
-                            <span data-lang="fr" class="active">Risques pre-revenue</span>
-                            <span data-lang="en">Pre-revenue risks</span>
+                        <a href="#rbf" class="px-8 py-4 rounded-xl bg-white/5 border border-white/20 text-white font-semibold hover:border-purple-500 hover:text-purple-400 transition-all">
+                            <span data-lang="fr" class="active">Structure RBF</span>
+                            <span data-lang="en">RBF Structure</span>
                         </a>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="absolute inset-0 gradient-bg rounded-3xl blur-3xl opacity-20"></div>
-                    <div class="relative bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="absolute inset-0 gradient-bg rounded-3xl blur-3xl opacity-30"></div>
+                    <div class="relative glass-card rounded-3xl p-8">
                         <h3 class="font-bold text-lg mb-6 text-center">Structure du RBF</h3>
                         <div class="space-y-4">
-                            <div class="flex justify-between items-center p-4 bg-slate-50 rounded-xl">
-                                <span class="text-slate-600">Investissement</span>
+                            <div class="metric-card rounded-2xl p-4 flex justify-between items-center">
+                                <span class="text-gray-400">Investissement</span>
                                 <span class="font-bold text-xl">€100K</span>
                             </div>
-                            <div class="flex justify-between items-center p-4 bg-indigo-50 rounded-xl border-2 border-indigo-200">
-                                <span class="text-slate-600">% du CA</span>
-                                <span class="font-bold text-xl text-indigo-600">15%</span>
+                            <div class="metric-card rounded-2xl p-4 flex justify-between items-center border-purple-500/50 border">
+                                <span class="text-gray-400">% du CA</span>
+                                <span class="font-bold text-xl text-purple-400">15%</span>
                             </div>
-                            <div class="flex justify-between items-center p-4 bg-green-50 rounded-xl border-2 border-green-200">
-                                <span class="text-slate-600">Cap (return)</span>
-                                <span class="font-bold text-xl text-green-600">€150K (1.5x)</span>
+                            <div class="metric-card rounded-2xl p-4 flex justify-between items-center border-pink-500/50 border">
+                                <span class="text-gray-400">Cap (return)</span>
+                                <span class="font-bold text-xl text-pink-400">€150K (1.5x)</span>
                             </div>
-                            <div class="flex justify-between items-center p-4 bg-amber-50 rounded-xl border-2 border-amber-200">
-                                <span class="text-slate-600">Grâce</span>
-                                <span class="font-bold text-xl text-amber-600">12 mois</span>
+                            <div class="metric-card rounded-2xl p-4 flex justify-between items-center border-amber-500/50 border">
+                                <span class="text-gray-400">Grâce</span>
+                                <span class="font-bold text-xl text-amber-400">12 mois</span>
                             </div>
-                            <div class="flex justify-between items-center p-4 bg-purple-50 rounded-xl border-2 border-purple-200">
-                                <span class="text-slate-600">Break-even</span>
-                                <span class="font-bold text-xl text-purple-600">Mois 15-18</span>
+                            <div class="metric-card rounded-2xl p-4 flex justify-between items-center">
+                                <span class="text-gray-400">Durée estimée</span>
+                                <span class="font-bold text-xl">~45-46 mois</span>
                             </div>
                         </div>
                     </div>
@@ -119,76 +121,72 @@
         </div>
     </section>
 
-    <!-- Modèle économique détaillé -->
-    <section id="model" class="py-20 bg-slate-50">
+    <!-- Projections détaillées -->
+    <section id="projections" class="py-20 bg-black/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                    <span data-lang="fr" class="active">Modèle <span class="gradient-text">Économique</span> (from scratch)</span>
-                    <span data-lang="en">Business <span class="gradient-text">Model</span> (from scratch)</span>
+                    <span data-lang="fr" class="active">Projections <span class="gradient-text">Financières</span></span>
+                    <span data-lang="en">Financial <span class="gradient-text">Projections</span></span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl mx-auto">
-                    <span data-lang="fr" class="active">Chiffres construits bottom-up : volume de projets × prix - churn + retainers progressifs.</span>
-                    <span data-lang="en">Bottom-up built numbers: project volume × price - churn + progressive retainers.</span>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    <span data-lang="fr" class="active">Chiffres construits bottom-up depuis le modèle Excel. Sous-traitance 47%, churn 5%.</span>
+                    <span data-lang="en">Bottom-up numbers from Excel model. 47% subcontracting, 5% churn.</span>
                 </p>
             </div>
 
-            <!-- Tableau des revenus -->
-            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200 mb-8">
+            <div class="glass-card rounded-2xl overflow-hidden mb-8">
                 <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-slate-50">
+                    <table class="w-full text-sm">
+                        <thead class="bg-white/5">
                             <tr>
-                                <th class="px-4 py-3 text-left text-sm font-semibold text-slate-600">Poste</th>
-                                <th class="px-4 py-3 text-center text-sm font-semibold text-slate-600">Y1 (2026)</th>
-                                <th class="px-4 py-3 text-center text-sm font-semibold text-slate-600">Y2 (2027)</th>
-                                <th class="px-4 py-3 text-center text-sm font-semibold text-slate-600">Y3 (2028)</th>
-                                <th class="px-4 py-3 text-center text-sm font-semibold text-slate-600">Y4 (2029)</th>
+                                <th class="px-4 py-4 text-left text-gray-400">Poste</th>
+                                <th class="px-4 py-4 text-center text-gray-400">Y1 (2026)</th>
+                                <th class="px-4 py-4 text-center text-gray-400">Y2 (2027)</th>
+                                <th class="px-4 py-4 text-center text-gray-400">Y3 (2028)</th>
+                                <th class="px-4 py-4 text-center text-gray-400">Y4 (2029)</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-100 text-sm">
-                            <tr class="bg-purple-50">
+                        <tbody class="divide-y divide-white/10">
+                            <tr class="bg-purple-500/10">
                                 <td class="px-4 py-3 font-medium" colspan="5">REVENUS</td>
                             </tr>
                             <tr>
-                                <td class="px-4 py-3">Projets (one-shot)</td>
-                                <td class="px-4 py-3 text-center">3 × €12K = €36K</td>
-                                <td class="px-4 py-3 text-center">7 × €14K = €98K</td>
-                                <td class="px-4 py-3 text-center">14 × €16K = €224K</td>
-                                <td class="px-4 py-3 text-center">18 × €18K = €324K</td>
+                                <td class="px-4 py-3 text-gray-300">Projets (3→18/an)</td>
+                                <td class="px-4 py-3 text-center">€36K</td>
+                                <td class="px-4 py-3 text-center">€98K</td>
+                                <td class="px-4 py-3 text-center">€224K</td>
+                                <td class="px-4 py-3 text-center">€324K</td>
                             </tr>
                             <tr>
-                                <td class="px-4 py-3">Retainers (mensuels)</td>
-                                <td class="px-4 py-3 text-center">2 × €2.5K × 6m = €30K</td>
-                                <td class="px-4 py-3 text-center">3.2 × €2.8K × 12 = €109K</td>
-                                <td class="px-4 py-3 text-center">5 × €3K × 12 = €180K</td>
-                                <td class="px-4 py-3 text-center">6 × €3.2K × 12 = €230K</td>
+                                <td class="px-4 py-3 text-gray-300">Retainers (2→6 clients)</td>
+                                <td class="px-4 py-3 text-center">€30K</td>
+                                <td class="px-4 py-3 text-center">€109K</td>
+                                <td class="px-4 py-3 text-center">€180K</td>
+                                <td class="px-4 py-3 text-center">€230K</td>
                             </tr>
-                            <tr class="bg-red-50">
-                                <td class="px-4 py-3">Churn (5%)</td>
-                                <td class="px-4 py-3 text-center text-red-600">-€3.3K</td>
-                                <td class="px-4 py-3 text-center text-red-600">-€10.4K</td>
-                                <td class="px-4 py-3 text-center text-red-600">-€20.2K</td>
-                                <td class="px-4 py-3 text-center text-red-600">-€27.7K</td>
+                            <tr class="bg-red-500/10">
+                                <td class="px-4 py-3 text-gray-300">Churn (5%)</td>
+                                <td class="px-4 py-3 text-center text-red-400">-€3.3K</td>
+                                <td class="px-4 py-3 text-center text-red-400">-€10.4K</td>
+                                <td class="px-4 py-3 text-center text-red-400">-€20.2K</td>
+                                <td class="px-4 py-3 text-center text-red-400">-€27.7K</td>
                             </tr>
-                            <tr class="bg-indigo-50 font-bold">
+                            <tr class="bg-white/10 font-bold">
                                 <td class="px-4 py-3">CA TOTAL</td>
-                                <td class="px-4 py-3 text-center text-indigo-700">€62.7K</td>
-                                <td class="px-4 py-3 text-center text-indigo-700">€196.8K</td>
-                                <td class="px-4 py-3 text-center text-indigo-700">€383.8K</td>
-                                <td class="px-4 py-3 text-center text-indigo-700">€526.7K</td>
-                            </tr>
-                            <tr class="bg-slate-50">
-                                <td class="px-4 py-3 font-medium" colspan="5">COÛTS</td>
+                                <td class="px-4 py-3 text-center text-purple-400">€62.7K</td>
+                                <td class="px-4 py-3 text-center text-purple-400">€196.8K</td>
+                                <td class="px-4 py-3 text-center text-purple-400">€383.8K</td>
+                                <td class="px-4 py-3 text-center text-purple-400">€526.7K</td>
                             </tr>
                             <tr>
-                                <td class="px-4 py-3">Sous-traitance (47%)</td>
+                                <td class="px-4 py-3 text-gray-300">Sous-traitance (47%)</td>
                                 <td class="px-4 py-3 text-center">-€29.5K</td>
                                 <td class="px-4 py-3 text-center">-€92.5K</td>
                                 <td class="px-4 py-3 text-center">-€180.4K</td>
                                 <td class="px-4 py-3 text-center">-€247.6K</td>
                             </tr>
-                            <tr class="bg-slate-50">
+                            <tr class="bg-white/5">
                                 <td class="px-4 py-3 font-medium">Marge brute</td>
                                 <td class="px-4 py-3 text-center">€33.2K</td>
                                 <td class="px-4 py-3 text-center">€104.3K</td>
@@ -196,174 +194,140 @@
                                 <td class="px-4 py-3 text-center">€279.1K</td>
                             </tr>
                             <tr>
-                                <td class="px-4 py-3">Salaire fondateur</td>
+                                <td class="px-4 py-3 text-gray-300">Salaire fondateur</td>
                                 <td class="px-4 py-3 text-center">-€24K</td>
                                 <td class="px-4 py-3 text-center">-€30K</td>
                                 <td class="px-4 py-3 text-center">-€42K</td>
                                 <td class="px-4 py-3 text-center">-€48K</td>
                             </tr>
                             <tr>
-                                <td class="px-4 py-3">Bureau Dubaï</td>
-                                <td class="px-4 py-3 text-center">-€9.6K</td>
-                                <td class="px-4 py-3 text-center">-€12K</td>
-                                <td class="px-4 py-3 text-center">-€14.4K</td>
-                                <td class="px-4 py-3 text-center">-€14.4K</td>
+                                <td class="px-4 py-3 text-gray-300">Charges exploitation</td>
+                                <td class="px-4 py-3 text-center">-€28.6K</td>
+                                <td class="px-4 py-3 text-center">-€40K</td>
+                                <td class="px-4 py-3 text-center">-€50.4K</td>
+                                <td class="px-4 py-3 text-center">-€56.4K</td>
                             </tr>
-                            <tr>
-                                <td class="px-4 py-3">Marketing</td>
-                                <td class="px-4 py-3 text-center">-€9K</td>
-                                <td class="px-4 py-3 text-center">-€15K</td>
-                                <td class="px-4 py-3 text-center">-€20K</td>
-                                <td class="px-4 py-3 text-center">-€24K</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-3">Outils & infra</td>
-                                <td class="px-4 py-3 text-center">-€6K</td>
-                                <td class="px-4 py-3 text-center">-€8K</td>
-                                <td class="px-4 py-3 text-center">-€10K</td>
-                                <td class="px-4 py-3 text-center">-€12K</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-3">Juridique</td>
-                                <td class="px-4 py-3 text-center">-€4K</td>
-                                <td class="px-4 py-3 text-center">-€5K</td>
-                                <td class="px-4 py-3 text-center">-€6K</td>
-                                <td class="px-4 py-3 text-center">-€6K</td>
-                            </tr>
-                            <tr class="bg-slate-100 font-bold">
+                            <tr class="bg-white/10 font-bold">
                                 <td class="px-4 py-3">EBITDA</td>
-                                <td class="px-4 py-3 text-center text-red-600">-€19.4K</td>
-                                <td class="px-4 py-3 text-center text-green-600">€34.3K</td>
-                                <td class="px-4 py-3 text-center text-green-600">€111K</td>
-                                <td class="px-4 py-3 text-center text-green-600">€174.7K</td>
+                                <td class="px-4 py-3 text-center text-red-400">-€19.4K</td>
+                                <td class="px-4 py-3 text-center text-green-400">€34.3K</td>
+                                <td class="px-4 py-3 text-center text-green-400">€111K</td>
+                                <td class="px-4 py-3 text-center text-green-400">€174.7K</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Break-even -->
-            <div class="honest-box rounded-xl p-6">
-                <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-                    <i class="fas fa-chart-line text-green-600"></i>
-                    Break-even : Mois 15-18 (courant Y2)
-                </h3>
-                <p class="text-sm text-slate-700">
-                    L'agence devient rentable opérationnellement au cours du 2ème trimestre de l'année 2. 
-                    C'est à ce moment que les retainers dépassent les coûts fixes et que les projets one-shot créent de la marge.
-                </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-bold text-lg mb-3 text-purple-300">Break-even : Mois 15-18</h3>
+                    <p class="text-sm text-gray-400">L'agence devient rentable opérationnellement au cours du 2ème trimestre de Y2, quand les retainers dépassent les coûts fixes.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="font-bold text-lg mb-3 text-purple-300">Sous-traitance 47%</h3>
+                    <p class="text-sm text-gray-400">Chrisoka, Yohan et freelances algériens pour l'exécution. Nexaura garde la relation client et la stratégie.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Calendrier de remboursement -->
-    <section id="schedule" class="py-20 bg-white">
+    <!-- Structure RBF -->
+    <section id="rbf" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                    <span data-lang="fr" class="active">Calendrier de <span class="gradient-text">Remboursement</span></span>
-                    <span data-lang="en">Repayment <span class="gradient-text">Schedule</span></span>
+                    <span data-lang="fr" class="active">Structure <span class="gradient-text">RBF</span></span>
+                    <span data-lang="en"><span class="gradient-text">RBF</span> Structure</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl mx-auto">
-                    <span data-lang="fr" class="active">Basé sur les projections Excel réelles (€62.7K → €526.7K).</span>
-                    <span data-lang="en">Based on actual Excel projections (€62.7K → €526.7K).</span>
-                </p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm">
-                        <thead class="bg-slate-50">
-                            <tr>
-                                <th class="px-4 py-3 text-left">Période</th>
-                                <th class="px-4 py-3 text-center">CA Annuel</th>
-                                <th class="px-4 py-3 text-center">% RBF</th>
-                                <th class="px-4 py-3 text-center">Remboursement</th>
-                                <th class="px-4 py-3 text-center">Cumul</th>
-                                <th class="px-4 py-3 text-center">Reste</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100">
-                            <tr class="bg-amber-50">
-                                <td class="px-4 py-3 font-medium">Y1 (Jan-Déc 2026)</td>
-                                <td class="px-4 py-3 text-center">€62.7K</td>
-                                <td class="px-4 py-3 text-center">0%</td>
-                                <td class="px-4 py-3 text-center">€0</td>
-                                <td class="px-4 py-3 text-center">€0</td>
-                                <td class="px-4 py-3 text-center">€150K</td>
-                            </tr>
-                            <tr class="bg-blue-50">
-                                <td class="px-4 py-3 font-medium">Y2 (2027)</td>
-                                <td class="px-4 py-3 text-center">€196.8K</td>
-                                <td class="px-4 py-3 text-center">15%</td>
-                                <td class="px-4 py-3 text-center">€29.5K</td>
-                                <td class="px-4 py-3 text-center">€29.5K</td>
-                                <td class="px-4 py-3 text-center">€120.5K</td>
-                            </tr>
-                            <tr>
-                                <td class="px-4 py-3 font-medium">Y3 (2028)</td>
-                                <td class="px-4 py-3 text-center">€383.8K</td>
-                                <td class="px-4 py-3 text-center">15%</td>
-                                <td class="px-4 py-3 text-center">€57.6K</td>
-                                <td class="px-4 py-3 text-center">€87.1K</td>
-                                <td class="px-4 py-3 text-center">€62.9K</td>
-                            </tr>
-                            <tr class="bg-green-50">
-                                <td class="px-4 py-3 font-medium">Y4 (~9-10 mois)</td>
-                                <td class="px-4 py-3 text-center">~€419K*</td>
-                                <td class="px-4 py-3 text-center">15%</td>
-                                <td class="px-4 py-3 text-center">€62.9K</td>
-                                <td class="px-4 py-3 text-center text-green-700 font-bold">€150K</td>
-                                <td class="px-4 py-3 text-center"><span class="text-green-600 font-bold">CAP ✓</span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot class="bg-slate-100 font-semibold">
-                            <tr>
-                                <td class="px-4 py-3" colspan="3">TOTAL</td>
-                                <td class="px-4 py-3 text-center text-green-700">€150K</td>
-                                <td class="px-4 py-3 text-center" colspan="2">Durée: ~45-46 mois</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="px-6 py-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-600">
-                    * Y4 : Cap atteint après ~9.5 mois (CA partiel sur CA annualisé €526.7K = ~€44K/mois)
-                </div>
-            </div>
-
-            <!-- Cash flow après RBF -->
-            <div class="grid md:grid-cols-2 gap-6 mt-8">
-                <div class="math-box rounded-xl p-6">
-                    <h3 class="font-bold text-lg mb-3">Cash flow après RBF</h3>
-                    <div class="text-sm text-slate-700 space-y-2">
-                        <div class="flex justify-between">
-                            <span>Y1 (grâce):</span>
-                            <span>EBITDA <strong>-€19.4K</strong></span>
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="font-bold text-xl mb-6">Calendrier de remboursement</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-amber-500/10 rounded-xl border border-amber-500/30">
+                            <div>
+                                <div class="font-medium">Y1 (2026)</div>
+                                <div class="text-sm text-gray-400">12 mois grâce</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-amber-400 font-bold">€0</div>
+                                <div class="text-xs text-gray-500">CA: €62.7K</div>
+                            </div>
                         </div>
-                        <div class="flex justify-between">
-                            <span>Y2 (15%):</span>
-                            <span>€34.3K - €29.5K = <strong class="text-green-700">+€4.8K</strong></span>
+                        <div class="flex justify-between items-center p-4 bg-blue-500/10 rounded-xl border border-blue-500/30">
+                            <div>
+                                <div class="font-medium">Y2 (2027)</div>
+                                <div class="text-sm text-gray-400">15% du CA</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-blue-400 font-bold">€29.5K</div>
+                                <div class="text-xs text-gray-500">Cumul: €29.5K</div>
+                            </div>
                         </div>
-                        <div class="flex justify-between">
-                            <span>Y3 (15%):</span>
-                            <span>€111K - €57.6K = <strong class="text-green-700">+€53.4K</strong></span>
+                        <div class="flex justify-between items-center p-4 bg-purple-500/10 rounded-xl border border-purple-500/30">
+                            <div>
+                                <div class="font-medium">Y3 (2028)</div>
+                                <div class="text-sm text-gray-400">15% du CA</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-purple-400 font-bold">€57.6K</div>
+                                <div class="text-xs text-gray-500">Cumul: €87.1K</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-green-500/10 rounded-xl border border-green-500/30">
+                            <div>
+                                <div class="font-medium">Y4 (2029)</div>
+                                <div class="text-sm text-gray-400">~9.5 mois</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-green-400 font-bold">€62.9K</div>
+                                <div class="text-xs text-gray-500">CAP: €150K ✓</div>
+                            </div>
                         </div>
                     </div>
+                    <div class="mt-6 p-4 bg-white/5 rounded-xl text-center">
+                        <div class="text-sm text-gray-400">Durée totale</div>
+                        <div class="text-2xl font-bold text-white">~45-46 mois</div>
+                    </div>
                 </div>
-                <div class="honest-box rounded-xl p-6">
-                    <h3 class="font-bold text-lg mb-3">Pourquoi ce RBF fonctionne</h3>
-                    <p class="text-sm text-slate-700">
-                        Le cash flow est négatif seulement en Y1 (période de grâce). Dès Y2, l'agence génère du cash positif 
-                        après remboursement RBF (€4.8K), et en Y3 la marge devient très confortable (€53K). 
-                        Le fondateur peut se payer et réinvestir.
-                    </p>
+
+                <div class="space-y-6">
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-lg mb-4 text-green-400">Cash flow après RBF</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between p-3 bg-white/5 rounded-lg">
+                                <span>Y1 (grâce)</span>
+                                <span class="text-red-400">EBITDA -€19.4K</span>
+                            </div>
+                            <div class="flex justify-between p-3 bg-white/5 rounded-lg">
+                                <span>Y2 (15%)</span>
+                                <span class="text-green-400">€34.3K - €29.5K = +€4.8K</span>
+                            </div>
+                            <div class="flex justify-between p-3 bg-white/5 rounded-lg">
+                                <span>Y3 (15%)</span>
+                                <span class="text-green-400">€111K - €57.6K = +€53.4K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6">
+                        <h3 class="font-bold text-lg mb-4 text-purple-400">Protections investisseur</h3>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fas fa-shield-alt text-purple-400"></i> Nantissement sur créances</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-clock text-purple-400"></i> Extension grâce si CA Y1 &lt; €40K</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-hand-holding-usd text-purple-400"></i> Plancher €10K/an dès Y2</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-undo text-purple-400"></i> Buyback à 1.2x à 60 mois</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Allocation des fonds -->
-    <section id="allocation" class="py-20 bg-slate-50">
+    <!-- Allocation -->
+    <section class="py-20 bg-black/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">
@@ -372,243 +336,91 @@
                 </h2>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
-                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-200">
-                        <h3 class="font-bold text-lg">Répartition</h3>
-                    </div>
-                    <div class="p-6">
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium">Fonds de roulement</span>
-                                    <span class="font-semibold">€35K (35%)</span>
-                                </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2">
-                                    <div class="bg-green-600 h-2 rounded-full" style="width: 35%"></div>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-1">10-12 mois de runway</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium">Salaire fondateur Y1</span>
-                                    <span class="font-semibold">€24K (24%)</span>
-                                </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2">
-                                    <div class="bg-amber-600 h-2 rounded-full" style="width: 24%"></div>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-1">€2K/mois × 12 mois</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium">Recrutement (1 dev)</span>
-                                    <span class="font-semibold">€20K (20%)</span>
-                                </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2">
-                                    <div class="bg-indigo-600 h-2 rounded-full" style="width: 20%"></div>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-1">Conditionnel : pipeline > €60K</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium">Setup Dubaï DMCC</span>
-                                    <span class="font-semibold">€12K (12%)</span>
-                                </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2">
-                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 12%"></div>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-1">Licence + flex desk 12 mois</p>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium">Marketing</span>
-                                    <span class="font-semibold">€9K (9%)</span>
-                                </div>
-                                <div class="w-full bg-slate-200 rounded-full h-2">
-                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 9%"></div>
-                                </div>
-                                <p class="text-xs text-slate-500 mt-1">LinkedIn Sales Nav + events</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-slate-200">
-                            <div class="flex justify-between font-bold text-lg">
-                                <span>TOTAL</span>
-                                <span class="text-green-600">€100K</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2">35%</div>
+                    <div class="text-sm font-medium mb-1">Fonds de roulement</div>
+                    <div class="text-xs text-gray-500">€35K</div>
+                    <div class="text-xs text-gray-600 mt-2">10-12 mois runway</div>
                 </div>
-
-                <div class="space-y-6">
-                    <div class="prerevenue-box rounded-xl p-6">
-                        <h3 class="font-bold text-lg mb-3 text-purple-800">Stratégie de lancement</h3>
-                        <div class="space-y-3 text-sm text-slate-700">
-                            <div class="flex items-start gap-2">
-                                <span class="text-purple-600 font-bold">1.</span>
-                                <span><strong>Mois 1-3 :</strong> Setup Dubaï, premier client, MRR initial</span>
-                            </div>
-                            <div class="flex items-start gap-2">
-                                <span class="text-purple-600 font-bold">2.</span>
-                                <span><strong>Mois 4-6 :</strong> 2ème retainer signé, premier projet one-shot</span>
-                            </div>
-                            <div class="flex items-start gap-2">
-                                <span class="text-purple-600 font-bold">3.</span>
-                                <span><strong>Mois 7-12 :</strong> Recrutement dev si pipeline > €60K, scaling</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="honest-box rounded-xl p-6">
-                        <h3 class="font-bold text-lg mb-3">Sous-traitance (47%)</h3>
-                        <p class="text-sm text-slate-700 mb-2">
-                            Chrisoka, Yohan, et freelances algériens pour l'exécution. 
-                            Nexaura garde la relation client et la stratégie.
-                        </p>
-                        <p class="text-sm text-slate-600">
-                            Cette structure permet de démarrer sans salariés coûteux, 
-                            avec une flexibilité maximale sur les volumes.
-                        </p>
-                    </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-amber-400 mb-2">24%</div>
+                    <div class="text-sm font-medium mb-1">Salaire fondateur</div>
+                    <div class="text-xs text-gray-500">€24K</div>
+                    <div class="text-xs text-gray-600 mt-2">€2K/mois Y1</div>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-indigo-400 mb-2">20%</div>
+                    <div class="text-sm font-medium mb-1">Recrutement</div>
+                    <div class="text-xs text-gray-500">€20K</div>
+                    <div class="text-xs text-gray-600 mt-2">1 dev conditionnel</div>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">12%</div>
+                    <div class="text-sm font-medium mb-1">Setup Dubaï</div>
+                    <div class="text-xs text-gray-500">€12K</div>
+                    <div class="text-xs text-gray-600 mt-2">DMCC + flex desk</div>
+                </div>
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">9%</div>
+                    <div class="text-sm font-medium mb-1">Marketing</div>
+                    <div class="text-xs text-gray-500">€9K</div>
+                    <div class="text-xs text-gray-600 mt-2">LinkedIn + events</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Risques pre-revenue -->
-    <section id="risks" class="py-20 bg-white">
+    <!-- Risques -->
+    <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                    <span data-lang="fr" class="active">Risques <span class="text-red-600">Pre-Revenue</span></span>
-                    <span data-lang="en"><span class="text-red-600">Pre-Revenue</span> Risks</span>
+                    <span data-lang="fr" class="active">Risques <span class="text-red-500">Pre-Revenue</span></span>
+                    <span data-lang="en"><span class="text-red-500">Pre-Revenue</span> Risks</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl mx-auto">
-                    <span data-lang="fr" class="active">Investir dans une entreprise sans clients est risqué. Voici les protections.</span>
-                    <span data-lang="en">Investing in a business with no clients is risky. Here are the protections.</span>
-                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                <div class="warning-box rounded-xl p-6">
-                    <h3 class="font-bold text-lg mb-4 text-amber-800">Risques identifiés</h3>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-amber-600 mt-1"></i>
-                            <span><strong>Zéro client actuel :</strong> Tout est à construire (pipeline, réputation, réseau)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-amber-600 mt-1"></i>
-                            <span><strong>Dépendance au fondateur :</strong> Pas d'équipe, pas de revenus sans lui</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-amber-600 mt-1"></i>
-                            <span><strong>Marché Dubaï inconnu :</strong> Concurrence, régulation, culture business</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-exclamation-triangle text-amber-600 mt-1"></i>
-                            <span><strong>Sous-traitance à 47% :</strong> Risque qualité, dépendance aux freelances</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="honest-box rounded-xl p-6">
-                    <h3 class="font-bold text-lg mb-4 text-green-800">Protections investisseur</h3>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-shield-alt text-green-600 mt-1"></i>
-                            <span><strong>Nantissement :</strong> Sur créances clients et équipement en cas de défaillance</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-clock text-green-600 mt-1"></i>
-                            <span><strong>Extension de grâce :</strong> Si CA Y1 &lt; €40K, la grâce passe à 18 mois</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-hand-holding-usd text-green-600 mt-1"></i>
-                            <span><strong>Plancher annuel :</strong> Minimum €10K/an de remboursement dès Y2</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-undo text-green-600 mt-1"></i>
-                            <span><strong>Buyback :</strong> À 60 mois, rachat possible à 1.2x du solde restant</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="bg-slate-900 rounded-2xl p-8 text-white">
-                <h3 class="font-bold text-xl mb-6 text-center">Scénario défavorable réaliste</h3>
-                <div class="grid md:grid-cols-3 gap-6 mb-6">
-                    <div class="bg-slate-800 rounded-xl p-4 text-center">
-                        <div class="text-3xl font-bold text-red-400 mb-2">€30K</div>
-                        <div class="text-sm text-slate-400">CA Y1 (vs €62.7K prévu)</div>
+            <div class="glass-card rounded-2xl p-8 border-red-500/30 border">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 text-red-400">Risques identifiés</h3>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-start gap-2"><i class="fas fa-exclamation-circle text-red-400 mt-1"></i> <span><strong>0 client actuel</strong> : Tout est à construire</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-exclamation-circle text-red-400 mt-1"></i> <span><strong>Dépendance fondateur</strong> : Pas d'équipe</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-exclamation-circle text-red-400 mt-1"></i> <span><strong>Marché Dubaï inconnu</strong> : Concurrence, culture</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-exclamation-circle text-red-400 mt-1"></i> <span><strong>Sous-traitance 47%</strong> : Risque qualité</span></li>
+                        </ul>
                     </div>
-                    <div class="bg-slate-800 rounded-xl p-4 text-center">
-                        <div class="text-3xl font-bold text-red-400 mb-2">€80K</div>
-                        <div class="text-sm text-slate-400">CA Y2 (vs €197K prévu)</div>
-                    </div>
-                    <div class="bg-slate-800 rounded-xl p-4 text-center">
-                        <div class="text-3xl font-bold text-red-400 mb-2">7-9 ans</div>
-                        <div class="text-sm text-slate-400">Durée remboursement</div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 text-green-400">Scénario défavorable</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between p-2 bg-white/5 rounded"><span>CA Y1</span> <span class="text-red-400">€30K (vs €62.7K)</span></div>
+                            <div class="flex justify-between p-2 bg-white/5 rounded"><span>CA Y2</span> <span class="text-red-400">€80K (vs €197K)</span></div>
+                            <div class="flex justify-between p-2 bg-white/5 rounded"><span>Durée remb.</span> <span class="text-red-400">7-9 ans</span></div>
+                            <div class="flex justify-between p-2 bg-white/5 rounded"><span>Protection</span> <span class="text-green-400">Buyback 1.2x à 60 mois</span></div>
+                        </div>
                     </div>
                 </div>
-                <p class="text-center text-sm text-slate-400">
-                    Dans ce scénario, l'investisseur peut activer le buyback à 60 mois (1.2x du solde) 
-                    ou étendre la durée avec plancher €10K/an.
-                </p>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20 bg-slate-50">
+    <section class="py-20 bg-black/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
-                        <span data-lang="fr" class="active">Un deal <span class="gradient-text">pre-revenue</span></span>
-                        <span data-lang="en">A <span class="gradient-text">pre-revenue</span> deal</span>
-                    </h2>
-                    <p class="text-slate-600 mb-6">
-                        <span data-lang="fr" class="active">Pas de traction, pas de clients, juste un modèle solide et un fondateur déterminé. C'est un pari sur l'exécution.</span>
-                        <span data-lang="en">No traction, no clients, just a solid model and a determined founder. It's a bet on execution.</span>
-                    </p>
-                    <div class="math-box rounded-xl p-4">
-                        <div class="text-sm font-semibold text-blue-800 mb-2">Récapitulatif</div>
-                        <div class="text-sm text-slate-700 space-y-1">
-                            <div class="flex justify-between"><span>Investissement:</span> <strong>€100K</strong></div>
-                            <div class="flex justify-between"><span>Structure:</span> <strong>RBF 15% du CA</strong></div>
-                            <div class="flex justify-between"><span>Cap:</span> <strong>€150K (1.5x)</strong></div>
-                            <div class="flex justify-between"><span>Grâce:</span> <strong>12 mois</strong></div>
-                            <div class="flex justify-between"><span>Durée:</span> <strong>~45-46 mois</strong></div>
-                            <div class="flex justify-between"><span>Break-even:</span> <strong>Mois 15-18</strong></div>
+            <div class="glass-card rounded-2xl p-8 text-center">
+                <h2 class="text-3xl font-bold mb-4">Contact</h2>
+                <p class="text-gray-400 mb-6">Pre-revenue • RBF 15% • Cap 1.5x • Lancement Jan 2026</p>
+                <div class="flex justify-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl p-8 shadow-sm">
-                    <h3 class="font-bold text-lg mb-6">Contact</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-slate-500">Email</div>
-                                <div class="font-medium">invest@nexaura.com</div>
-                            </div>
+                        <div class="text-left">
+                            <div class="text-sm text-gray-500">Email</div>
+                            <div class="font-medium">invest@nexaura.com</div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm text-slate-500">Lieu</div>
-                                <div class="font-medium">Dubai (DMCC) / Paris</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 bg-amber-50 rounded-xl text-xs text-amber-700">
-                        <i class="fas fa-exclamation-triangle mr-2"></i>
-                        Ce document présente une entreprise en création sans historique de revenus. 
-                        Les projections sont indicatives et sujettes à réalisation.
                     </div>
                 </div>
             </div>
@@ -616,17 +428,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-xl">N</div>
-                    <span class="font-bold text-xl">Nexaura <span class="text-indigo-400">Investment</span></span>
-                </div>
-                <div class="text-slate-400 text-sm text-center md:text-right">
-                    <div>Pre-revenue • RBF 15% • Cap 1.5x • Lancement Jan 2026</div>
-                </div>
-            </div>
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+            © 2024 Nexaura Investment. Pre-revenue opportunity.
         </div>
     </footer>
 
